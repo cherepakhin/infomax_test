@@ -16,19 +16,6 @@ public class ProductJsonReaderTest {
 
     @Test
     public void readArrayFromFile() throws FileNotFoundException {
-//        JsonReader jsonReader = Json.createReader(new FileReader(productsJsonFilename));
-//        JsonArray products = jsonReader.readArray();
-//        products.getValuesAs(jsonValue -> jsonValue.asJsonObject());
-//        Assert.assertEquals(4, products.size());
-//
-//        JsonObject p = products.get(0).asJsonObject();
-//        Product product = new Product();
-//        product.setGrp(p.getString("grp"));
-//        product.setType(p.getString("type"));
-//        product.setNum(p.getInt("num"));
-//        product.setWeight(p.asJsonObject().getInt("weight"));
-//
-//        Assert.assertEquals(new Product("grp1", "type1", 1, 111), product);
         ProductJsonReader reader = new ProductJsonReader();
         List<Product> products = reader.readFromFile(productsJsonFilename);
         Assert.assertEquals(4, products.size());
