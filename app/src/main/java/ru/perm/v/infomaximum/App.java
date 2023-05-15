@@ -28,10 +28,10 @@ public class App {
                 for (String group : weightByGroup.keySet()) {
                     System.out.println(String.format("For group: %s sum weight: %s",group,weightByGroup.get(group)));
                 }
-                System.out.println("\n-----------------------");
-                System.out.println(String.format("Min weight: %s", stat.getMinWeight(products)));
-                System.out.println("\n-----------------------");
-                System.out.println(String.format("Max weight: %s", stat.getMaxWeight(products)));
+                System.out.println("\n-------Min weight------");
+                System.out.println(String.format("%s", stat.getMinWeight(products)));
+                System.out.println("\n-------Max weight------");
+                System.out.println(String.format("%s", stat.getMaxWeight(products)));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

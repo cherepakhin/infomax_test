@@ -7,8 +7,8 @@ public class Stat {
     /**
      * Максимальный вес продукта в списке продуктов
      *
-     * @param products
-     * @return
+     * @param products список продуктов
+     * @return максимальный вес
      */
     public Integer getMaxWeight(List<Product> products) {
         return Collections.max(products, Comparator.comparing(p -> p.getWeight())).getWeight();
@@ -17,11 +17,11 @@ public class Stat {
     /**
      * Минимальный вес продукта в списке продуктов
      *
-     * @param products
-     * @return
+     * @param products список продуктов
+     * @return минимальный вес
      */
     public Integer getMinWeight(List<Product> products) {
-        return Collections.min(products, Comparator.comparing(p -> p.getWeight())).getWeight();
+        return Collections.min(products, Comparator.comparing(Product::getWeight)).getWeight();
     }
 
     /**
@@ -46,7 +46,7 @@ public class Stat {
      * product(grp1,type2,nnum4,weight_nnum4)
      *
      * @param products список продуктов
-     * @return
+     * @return список дубликатов
      */
     List<Product> getDuplicatesByGrpAndType(List<Product> products) {
         Comparator<Product> comparatorByGrpAndType = Comparator
