@@ -3,6 +3,7 @@ package ru.perm.v.infomaximum;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ public class StatTest {
         product1.setWeight(111);
         Product product2 = new Product();
         product2.setWeight(222);
-        List<Product> productList = List.of(product1, product2);
+        List<Product> productList = Arrays.asList(product1, product2);
         Stat stat = new Stat();
 
         Integer maxWeight = stat.getMaxWeight(productList);
@@ -30,7 +31,7 @@ public class StatTest {
         product1.setWeight(111);
         Product product2 = new Product();
         product2.setWeight(222);
-        List<Product> productList = List.of(product1, product2);
+        List<Product> productList = Arrays.asList(product1, product2);
         Stat stat = new Stat();
 
         Integer minWeight = stat.getMinWeight(productList);
@@ -56,7 +57,7 @@ public class StatTest {
         product22.setGrp(GRP2);
         product22.setWeight(333);
 
-        List<Product> productList = List.of(product11, product12, product21, product22);
+        List<Product> productList = Arrays.asList(product11, product12, product21, product22);
         Stat stat = new Stat();
 
         Map<String, Integer> weightByGroup = stat.getWegthByGroup(productList);
@@ -97,7 +98,7 @@ public class StatTest {
         otherProduct.setGrp("-");
         otherProduct.setType("-");
 
-        List<Product> productList = List.of(productG1T1N1, productG1T1N2, productG2T2N3, productG2T2N4, otherProduct);
+        List<Product> productList = Arrays.asList(productG1T1N1, productG1T1N2, productG2T2N3, productG2T2N4, otherProduct);
         Stat stat = new Stat();
         List<Product> duplicates = stat.getDuplicatesByGrpAndType(productList);
 
