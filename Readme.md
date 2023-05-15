@@ -73,7 +73,7 @@ java -jar test-generator.jar -file "out.csv" -format csv -count 10 000 000
 
 ```shell
 cd app/build/libs 
-app/build/libs$ java -Xms256m -Xmx512m -jar app.jar
+app/build/libs$ java -Xms256m -Xmx512m -jar app/build/libs/app.jar
 ````
 Ввод данных:
 ````shell
