@@ -26,6 +26,15 @@ dependencies {
     implementation 'org.glassfish:javax.json:1.1.4'
 }
 application {
-    // Define the main class for the application.
-    mainClass = 'my.gradle.project.App'
+    mainClass = 'ru.perm.v.infomaximum.App'
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "ru.perm.v.infomaximum.App"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
