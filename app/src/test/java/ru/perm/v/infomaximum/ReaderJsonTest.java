@@ -10,7 +10,7 @@ import java.io.StringReader;
 
 public class ReaderJsonTest {
     @Test
-    public void readFromFile() {
+    public void readFromString() {
         String replyString = "{\"msg\": \"MSG\", \"pass\": true}";
         JsonReader jsonReader = Json.createReader(new StringReader(replyString));
         JsonObject reply = jsonReader.readObject();
