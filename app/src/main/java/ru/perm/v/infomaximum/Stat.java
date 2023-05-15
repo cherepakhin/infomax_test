@@ -34,4 +34,40 @@ public class Stat {
         return products.stream().collect(Collectors.groupingBy(Product::getGrp,
                 Collectors.summingInt(Product::getWeight)));
     }
+
+    /**
+     * Дубликаты объектов (объекты с одинаковой группой(“group”) и типом (“type”))
+     * с количеством их повторений (выводятся только записи, где количество больше одного).
+     * Сортировка:
+     * product(grp1,type1,nnum1,weight_nnum1)
+     * product(grp1,type1,nnum2,weight_nnum2)
+     * <p>
+     * product(grp1,type2,nnum3,weight_nnum3)
+     * product(grp1,type2,nnum4,weight_nnum4)
+     *
+     * @param products список продуктов
+     * @return
+     */
+    List<Product> getDuplicatesByGrpAndType(List<Product> products) {
+        Comparator<Product> comparatorByGrpAndType = Comparator
+                .comparing(Product::getGrp)
+                .thenComparing(Product::getType);
+        List<Product> sortedProducts = products.stream()
+                .sorted(comparatorByGrpAndType)
+                .collect(Collectors.toList());
+        String prevGrp = "";
+        String prevType = "";
+        Product prevProduct = new Product();
+        List<Product> ret = new ArrayList<>();
+        for (Product currentProduct : sortedProducts) {
+            if (currentProduct.getGrp().equals(prevGrp) && currentProduct.getType().equals(prevType)) {
+                ret.add(prevProduct);
+                ret.add(currentProduct);
+            }
+            prevGrp = currentProduct.getGrp();
+            prevType = currentProduct.getType();
+            prevProduct = currentProduct;
+        }
+        return ret;
+    }
 }
