@@ -1,8 +1,7 @@
 package ru.perm.v.infomaximum;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Stat {
     public Integer getMaxWeight(List<Product> products) {
@@ -11,5 +10,17 @@ public class Stat {
 
     public Integer getMinWeight(List<Product> products) {
         return Collections.min(products, Comparator.comparing(p -> p.getWeight())).getWeight();
+    }
+
+    /**
+     * Суммарный вес по группе
+     *
+     * @param products список продуктов
+     * @return Map<String, Integer> где String название группы, Integer - вес
+     */
+    public Map<String, Integer> getWegthByGroup(List<Product> products) {
+        Map<String, Integer> result = products.stream().collect(Collectors.groupingBy(Product::getGrp,
+                Collectors.summingInt(Product::getWeight)));
+        return result;
     }
 }
