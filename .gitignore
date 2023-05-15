@@ -11,3 +11,4 @@ target/
 bin/
 app/build/
 .gradle/
+out10_000_000.json
