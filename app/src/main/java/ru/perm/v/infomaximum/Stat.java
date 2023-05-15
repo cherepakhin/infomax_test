@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 public class Stat {
     /**
      * Максимальный вес продукта в списке продуктов
+     *
      * @param products
      * @return
      */
@@ -15,6 +16,7 @@ public class Stat {
 
     /**
      * Минимальный вес продукта в списке продуктов
+     *
      * @param products
      * @return
      */
