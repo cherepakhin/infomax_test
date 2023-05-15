@@ -1,11 +1,15 @@
 package ru.perm.v.infomaximum;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.TreeNode;
+
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +21,13 @@ public class ProductJsonReader {
      * @return List<Product>
      * @throws FileNotFoundException
      */
+//      Так работает, НО падает "java.lang.OutOfMemoryError: Java heap space" с out10_000_000.json
+//      в JsonReader jsonReader = Json.createReader(new FileReader(filepath));
+//      Но РАБОТАЕТ с НЕБОЛЬШИМ json
     public List<Product> readFromFile(String filepath) throws FileNotFoundException {
-        JsonReader jsonReader = Json.createReader(new FileReader(filepath));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath), 16384);
+        JsonReader jsonReader = Json.createReader(bufferedReader);
+
         JsonArray productJsonArray = jsonReader.readArray();
         List<Product> products = new ArrayList<>();
         for (JsonObject jsonObject : productJsonArray.getValuesAs(JsonObject.class)) {

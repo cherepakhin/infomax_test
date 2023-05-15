@@ -23,6 +23,8 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
     implementation 'javax.json:javax.json-api:1.1.4'
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.15.0'
     implementation 'org.glassfish:javax.json:1.1.4'
 }
 application {

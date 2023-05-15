@@ -25,4 +25,12 @@ public class ProductJsonReaderTest {
         Assert.assertEquals(new Product("grp2", "type1", 3, 213), products.get(2));
         Assert.assertEquals(new Product("grp2", "type2", 4, 224), products.get(3));
     }
+
+//    @Test
+//    public void readForBigFile() throws FileNotFoundException {
+//        String productsJsonFilename = "src/test/resources/out10mln.json";
+//        ProductJsonReader reader = new ProductJsonReader();
+//        List<Product> products = reader.readFromFile(productsJsonFilename);
+//        Assert.assertEquals(10000000, products.size());
+//    }
 }
