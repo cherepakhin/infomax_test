@@ -62,4 +62,14 @@ public class Product {
     public int hashCode() {
         return Objects.hash(grp, type, num, weight);
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "grp='" + grp + '\'' +
+                ", type='" + type + '\'' +
+                ", num=" + num +
+                ", weight=" + weight +
+                '}';
+    }
 }

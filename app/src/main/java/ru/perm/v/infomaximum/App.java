@@ -3,12 +3,38 @@
  */
 package ru.perm.v.infomaximum;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.println("Enter name CSV file:");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        if (!input.equals("exit")) {
+            ProductJsonReader reader = new ProductJsonReader();
+            try {
+                List<Product> products = reader.readFromFile(input);
+                Stat stat = new Stat();
+                List<Product> duplicates = stat.getDuplicatesByGrpAndType(products);
+                System.out.println("\n------Duplicates:------");
+                for(Product product: duplicates) {
+                    System.out.println(product);
+                }
+                System.out.println("\n---Weight by group:----");
+                Map<String, Integer> weightByGroup = stat.getWegthByGroup(products);
+                for (String group : weightByGroup.keySet()) {
+                    System.out.println(String.format("For group: %s sum weight: %s",group,weightByGroup.get(group)));
+                }
+                System.out.println("\n-----------------------");
+                System.out.println(String.format("Min weight: %s", stat.getMinWeight(products)));
+                System.out.println("\n-----------------------");
+                System.out.println(String.format("Max weight: %s", stat.getMaxWeight(products)));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
