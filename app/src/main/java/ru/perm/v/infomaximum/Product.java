@@ -8,6 +8,16 @@ public class Product {
     private Integer num = 0;
     private Integer weight = 0;
 
+    public Product() {
+    }
+
+    public Product(String grp, String type, Integer num, Integer weight) {
+        this.grp = grp;
+        this.type = type;
+        this.num = num;
+        this.weight = weight;
+    }
+
     public String getGrp() {
         return grp;
     }

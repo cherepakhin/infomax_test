@@ -3,14 +3,13 @@ package ru.perm.v.infomaximum;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.json.*;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.StringReader;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 public class ReaderJsonTest {
     @Test
@@ -34,6 +33,16 @@ public class ReaderJsonTest {
     public void readArrayFromFile() throws FileNotFoundException {
         JsonReader jsonReader = Json.createReader(new FileReader("src/test/resources/out.json"));
         JsonArray products = jsonReader.readArray();
+        products.getValuesAs(jsonValue -> jsonValue.asJsonObject());
         Assert.assertEquals(4, products.size());
+
+        JsonObject p = products.get(0).asJsonObject();
+        Product product = new Product();
+        product.setGrp(p.getString("grp"));
+        product.setType(p.getString("type"));
+        product.setNum(p.getInt("num"));
+        product.setWeight(p.asJsonObject().getInt("weight"));
+
+        Assert.assertEquals(new Product("grp1", "type1", 1, 111), product);
     }
 }
