@@ -64,13 +64,6 @@ java -jar test-generator.jar -file "out.csv" -format csv -count 10 000 000
 <b>Использование</b>
 <br/>
 ````shell
-Enter path file for load (csv/json): doc/out.csv
-Time elapsed: 7,571 ms
-Enter path file for load (csv/json): doc/out.json
-Time elapsed: 9,337 ms
-Enter path file for load (csv/json): exit
-````
-<b>TODO</b>
+Enter path file for load (csv/json): out.csv
 
-1. ~~Прикрутить какую-нибудь Arango или другую вертикальную БД (https://github.com/cherepakhin/arango-data) , как средство обработки/получения данных~~ (нельзя по условиям задачи)
-2. Загружать файл порциями, результаты держать в памяти
+````
