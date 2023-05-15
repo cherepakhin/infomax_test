@@ -12,10 +12,10 @@ import java.io.FileReader;
 import java.util.List;
 
 public class ProductJsonReaderTest {
-    private String productsJsonFilename = "src/test/resources/out.json";
 
     @Test
     public void readArrayFromFile() throws FileNotFoundException {
+        String productsJsonFilename = "src/test/resources/out.json";
         ProductJsonReader reader = new ProductJsonReader();
         List<Product> products = reader.readFromFile(productsJsonFilename);
         Assert.assertEquals(4, products.size());
