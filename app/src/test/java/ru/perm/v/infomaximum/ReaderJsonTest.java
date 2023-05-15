@@ -9,6 +9,7 @@ import javax.json.JsonReader;
 import java.io.StringReader;
 
 public class ReaderJsonTest {
+    //TODO: delete this. Only for test
     // Simple reader JSON
     @Test
     public void readSimpleObjFromJsonString() {
