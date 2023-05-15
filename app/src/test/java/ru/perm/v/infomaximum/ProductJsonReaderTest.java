@@ -3,15 +3,16 @@ package ru.perm.v.infomaximum;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.List;
 
 public class ProductJsonReaderTest {
+
+    @Test
+    public void readFromNotExistFile() {
+        ProductJsonReader reader = new ProductJsonReader();
+        Assert.assertThrows(FileNotFoundException.class, () -> reader.readFromFile(""));
+    }
 
     @Test
     public void readArrayFromFile() throws FileNotFoundException {
