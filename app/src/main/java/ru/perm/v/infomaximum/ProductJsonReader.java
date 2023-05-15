@@ -11,8 +11,14 @@ import java.util.List;
 
 public class ProductJsonReader {
 
+    /**
+     * Read products from json file and convert to List
+     * @param filepath path json products file. For example: "src/test/resources/out.json"
+     * @return List<Product>
+     * @throws FileNotFoundException
+     */
     public List<Product> readFromFile(String filepath) throws FileNotFoundException {
-        JsonReader jsonReader = Json.createReader(new FileReader(filepath)); //"src/test/resources/out.json"
+        JsonReader jsonReader = Json.createReader(new FileReader(filepath));
         JsonArray productJsonArray = jsonReader.readArray();
         List<Product> products = new ArrayList<>();
         for (JsonObject jsonObject : productJsonArray.getValuesAs(JsonObject.class)) {
