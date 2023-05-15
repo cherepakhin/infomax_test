@@ -64,6 +64,23 @@ java -jar test-generator.jar -file "out.csv" -format csv -count 10 000 000
 <b>Использование</b>
 <br/>
 ````shell
-Enter path file for load (csv/json): out.csv
+Enter name CSV file:
+out.json
+
+------Duplicates:------
+Product{grp='grp1', type='type1', num=1, weight=111}
+Product{grp='grp1', type='type1', num=2, weight=112}
+
+---Weight by group:----
+For group: grp1 sum weight: 223
+For group: grp2 sum weight: 437
+
+-------Min weight------
+111
+
+-------Max weight------
+224
+
+Process finished with exit code 0
 
 ````
