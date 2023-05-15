@@ -4,10 +4,20 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Stat {
+    /**
+     * Максимальный вес продукта в списке продуктов
+     * @param products
+     * @return
+     */
     public Integer getMaxWeight(List<Product> products) {
         return Collections.max(products, Comparator.comparing(p -> p.getWeight())).getWeight();
     }
 
+    /**
+     * Минимальный вес продукта в списке продуктов
+     * @param products
+     * @return
+     */
     public Integer getMinWeight(List<Product> products) {
         return Collections.min(products, Comparator.comparing(p -> p.getWeight())).getWeight();
     }
