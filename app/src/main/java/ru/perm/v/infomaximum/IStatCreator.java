@@ -3,6 +3,10 @@ package ru.perm.v.infomaximum;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Получение статистики на основе списка Product.
+ * Не сработает, если список продуктов большой и памяти мало
+ */
 public interface IStatCreator {
     /**
      * Максимальный вес продукта в списке продуктов

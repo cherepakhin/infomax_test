@@ -13,14 +13,13 @@ import java.util.List;
 public class ProductJsonReader {
 
     /**
-     * Read products from json file and convert to List
-     * @param filepath path json products file. For example: "src/test/resources/out.json"
-     * @return List<Product>
-     * @throws FileNotFoundException
+     * Получение списка Product из файла.
+     * Падает "java.lang.OutOfMemoryError: Java heap space" с json файлом out10_000_000.json (10 млн. объектов)
+     * в JsonReader jsonReader = Json.createReader(new FileReader(filepath));
+     * Но РАБОТАЕТ с НЕБОЛЬШИМ json
+     *
+     * @throws FileNotFoundException - файл не найден
      */
-//      Так работает, НО падает "java.lang.OutOfMemoryError: Java heap space" с out10_000_000.json
-//      в JsonReader jsonReader = Json.createReader(new FileReader(filepath));
-//      Но РАБОТАЕТ с НЕБОЛЬШИМ json
     public List<Product> readFromFile(String filepath) throws FileNotFoundException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath), 16384);
         JsonReader jsonReader = Json.createReader(bufferedReader);

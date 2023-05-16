@@ -18,7 +18,7 @@ public class StatCreatorByProductsTest {
         Product product2 = new Product();
         product2.setWeight(222);
         List<Product> productList = Arrays.asList(product1, product2);
-        StatCreatorByProducts statCreatorByProducts = new StatCreatorByProducts();
+        StatCreatorByListProducts statCreatorByProducts = new StatCreatorByListProducts();
 
         Integer maxWeight = statCreatorByProducts.getMaxWeight(productList);
 
@@ -32,7 +32,7 @@ public class StatCreatorByProductsTest {
         Product product2 = new Product();
         product2.setWeight(222);
         List<Product> productList = Arrays.asList(product1, product2);
-        StatCreatorByProducts statCreatorByProducts = new StatCreatorByProducts();
+        StatCreatorByListProducts statCreatorByProducts = new StatCreatorByListProducts();
 
         Integer minWeight = statCreatorByProducts.getMinWeight(productList);
 
@@ -58,7 +58,7 @@ public class StatCreatorByProductsTest {
         product22.setWeight(333);
 
         List<Product> productList = Arrays.asList(product11, product12, product21, product22);
-        StatCreatorByProducts statCreatorByProducts = new StatCreatorByProducts();
+        StatCreatorByListProducts statCreatorByProducts = new StatCreatorByListProducts();
 
         Map<String, Integer> weightByGroup = statCreatorByProducts.getSumWegthByGroup(productList);
 
@@ -99,7 +99,7 @@ public class StatCreatorByProductsTest {
         otherProduct.setType("-");
 
         List<Product> productList = Arrays.asList(productG1T1N1, productG1T1N2, productG2T2N3, productG2T2N4, otherProduct);
-        StatCreatorByProducts stat = new StatCreatorByProducts();
+        StatCreatorByListProducts stat = new StatCreatorByListProducts();
         List<Product> duplicates = stat.getDuplicatesByGrpAndType(productList);
 
         assertEquals(4, duplicates.size());

@@ -3,7 +3,11 @@ package ru.perm.v.infomaximum;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class StatCreatorByProducts implements IStatCreator {
+/**
+ * Получение статистики на основе списка Product.
+ * Не сработает, если список продуктов большой и памяти мало
+ */
+public class StatCreatorByListProducts implements IStatCreator {
     public Integer getMaxWeight(List<Product> products) {
         return Collections.max(products, Comparator.comparing(p -> p.getWeight())).getWeight();
     }

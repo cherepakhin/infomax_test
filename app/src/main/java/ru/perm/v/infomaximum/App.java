@@ -34,7 +34,7 @@ public class App {
         ProductJsonReader reader = new ProductJsonReader();
         try {
             List<Product> products = reader.readFromFile(filename);
-            IStatCreator stat = new StatCreatorByProducts();
+            IStatCreator stat = new StatCreatorByListProducts();
             List<Product> duplicates = stat.getDuplicatesByGrpAndType(products);
             System.out.println("\n------Duplicates:------");
             for (Product product : duplicates) {
