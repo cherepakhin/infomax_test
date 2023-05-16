@@ -16,12 +16,12 @@ public class App {
         if (filename.equals("exit")) {
             return;
         }
-        System.out.println("Enter method parse (1) with create Product, (2) calc word):");
-        Scanner variant = new Scanner(System.in);
-        if (variant.equals("1")) {
+        System.out.println("Enter method parse:\n 1) with create Product\n 2) calc by word in json file (\"weight\",...):");
+        String method = scanner.nextLine();
+        if (method.equals("1")) {
             createStatWithCreateClassProduct(filename);
         }
-        if (variant.equals("2")) {
+        if (method.equals("2")) {
             createStatWithCreateClassProduct(filename);
         }
     }
