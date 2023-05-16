@@ -12,14 +12,29 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Enter name file (JSON/CSV):");
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        if (input.equals("exit")) {
+        String filename = scanner.nextLine();
+        if (filename.equals("exit")) {
             return;
         }
+        System.out.println("Enter method parse (1) with create Product, (2) calc word):");
+        Scanner variant = new Scanner(System.in);
+        if (variant.equals("1")) {
+            createStatWithCreateClassProduct(filename);
+        }
+        if (variant.equals("2")) {
+            createStatWithCreateClassProduct(filename);
+        }
+    }
+
+    /**
+     * Получение статистики с созданием Product
+     * @param filename
+     */
+    private static void createStatWithCreateClassProduct(String filename) {
         ProductJsonReader reader = new ProductJsonReader();
         try {
-            List<Product> products = reader.readFromFile(input);
-            Stat stat = new Stat();
+            List<Product> products = reader.readFromFile(filename);
+            IStatCreator stat = new StatCreatorByProducts();
             List<Product> duplicates = stat.getDuplicatesByGrpAndType(products);
             System.out.println("\n------Duplicates:------");
             for (Product product : duplicates) {
