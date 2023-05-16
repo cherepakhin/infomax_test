@@ -3,7 +3,7 @@ package ru.perm.v.infomaximum;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Stat {
+public class Stat implements IStat {
     /**
      * Максимальный вес продукта в списке продуктов
      *
@@ -48,7 +48,7 @@ public class Stat {
      * @param products список продуктов
      * @return список дубликатов
      */
-    List<Product> getDuplicatesByGrpAndType(List<Product> products) {
+    public List<Product> getDuplicatesByGrpAndType(List<Product> products) {
         Comparator<Product> comparatorByGrpAndType = Comparator
                 .comparing(Product::getGrp)
                 .thenComparing(Product::getType);
