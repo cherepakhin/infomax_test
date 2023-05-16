@@ -2,6 +2,8 @@ package ru.perm.v.infomaximum;
 
 
 import org.junit.Test;
+import ru.perm.v.infomaximum.data.Product;
+import ru.perm.v.infomaximum.parser_object.StatCreatorByListProducts;
 
 import java.util.Arrays;
 import java.util.List;

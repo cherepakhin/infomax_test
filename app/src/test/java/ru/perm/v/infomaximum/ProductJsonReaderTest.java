@@ -2,6 +2,8 @@ package ru.perm.v.infomaximum;
 
 import org.junit.Assert;
 import org.junit.Test;
+import ru.perm.v.infomaximum.data.Product;
+import ru.perm.v.infomaximum.parser_object.ProductJsonReader;
 
 import java.io.FileNotFoundException;
 import java.util.List;

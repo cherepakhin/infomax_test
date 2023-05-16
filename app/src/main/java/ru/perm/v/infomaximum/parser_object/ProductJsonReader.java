@@ -1,4 +1,6 @@
-package ru.perm.v.infomaximum;
+package ru.perm.v.infomaximum.parser_object;
+
+import ru.perm.v.infomaximum.data.Product;
 
 import javax.json.Json;
 import javax.json.JsonArray;

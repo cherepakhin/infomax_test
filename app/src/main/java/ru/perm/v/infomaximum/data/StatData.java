@@ -1,4 +1,6 @@
-package ru.perm.v.infomaximum;
+package ru.perm.v.infomaximum.data;
+
+import ru.perm.v.infomaximum.data.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;

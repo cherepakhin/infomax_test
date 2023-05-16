@@ -1,4 +1,4 @@
-package ru.perm.v.infomaximum;
+package ru.perm.v.infomaximum.data;
 
 import java.util.Map;
 
