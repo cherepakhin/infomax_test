@@ -12,18 +12,50 @@ public class StatData {
     /**
      * Максимальный вес продукта в списке продуктов
      */
-    Integer maxWeight = 0;
+    private Integer maxWeight = 0;
     /**
      * Минимальный вес продукта в списке продуктов
      */
-    Integer minWeight = 0;
+    private Integer minWeight = 0;
     /**
      * Суммарный вес по группе
      */
-    Map<String, Integer> sumWegthByGroup = new HashMap<>();
+    private Map<String, Integer> sumWegthByGroup = new HashMap<>();
     /**
      * Дубликаты объектов (объекты с одинаковой группой(“group”) и типом (“type”))
      * с количеством их повторений (выводятся только записи, где количество больше одного).
      */
-    List<Product> duplicates = new ArrayList<>();
+    private List<Product> duplicates = new ArrayList<>();
+
+    public Integer getMaxWeight() {
+        return maxWeight;
+    }
+
+    public void setMaxWeight(Integer maxWeight) {
+        this.maxWeight = maxWeight;
+    }
+
+    public Integer getMinWeight() {
+        return minWeight;
+    }
+
+    public void setMinWeight(Integer minWeight) {
+        this.minWeight = minWeight;
+    }
+
+    public Map<String, Integer> getSumWegthByGroup() {
+        return sumWegthByGroup;
+    }
+
+    public void setSumWegthByGroup(Map<String, Integer> sumWegthByGroup) {
+        this.sumWegthByGroup = sumWegthByGroup;
+    }
+
+    public List<Product> getDuplicates() {
+        return duplicates;
+    }
+
+    public void setDuplicates(List<Product> duplicates) {
+        this.duplicates = duplicates;
+    }
 }
