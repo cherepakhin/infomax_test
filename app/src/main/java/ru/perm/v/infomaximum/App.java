@@ -5,7 +5,6 @@ package ru.perm.v.infomaximum;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -19,36 +18,40 @@ public class App {
         System.out.println("Enter method parse:\n 1) with create Product\n 2) calc by word in json file (\"weight\",...):");
         String method = scanner.nextLine();
         if (method.equals("1")) {
-            createStatWithCreateClassProduct(filename);
+            createStatWithCreateListProducts(filename);
         }
         if (method.equals("2")) {
-            createStatWithCreateClassProduct(filename);
+            createStatByCalcWord(filename);
         }
     }
 
     /**
-     * Получение статистики с созданием Product
-     * @param filename
+     * Получение статистики через выборку строк
+     * @param filename файл с данными
      */
-    private static void createStatWithCreateClassProduct(String filename) {
+    private static void createStatByCalcWord(String filename) {
+    }
+
+    /**
+     * Получение статистики с созданием списка Product
+     *
+     * @param filename файл с данными
+     */
+    private static void createStatWithCreateListProducts(String filename) {
         ProductJsonReader reader = new ProductJsonReader();
         try {
             List<Product> products = reader.readFromFile(filename);
-            IStatCreator stat = new StatCreatorByListProducts();
-            List<Product> duplicates = stat.getDuplicatesByGrpAndType(products);
-            System.out.println("\n------Duplicates:------");
-            for (Product product : duplicates) {
-                System.out.println(product);
-            }
-            System.out.println("\n---Weight by group:----");
-            Map<String, Integer> weightByGroup = stat.getSumWegthByGroup(products);
-            for (String group : weightByGroup.keySet()) {
-                System.out.println(String.format("For group: %s sum weight: %s", group, weightByGroup.get(group)));
-            }
-            System.out.println("\n-------Min weight------");
-            System.out.println(String.format("%s", stat.getMinWeight(products)));
-            System.out.println("\n-------Max weight------");
-            System.out.println(String.format("%s", stat.getMaxWeight(products)));
+
+            IStatCreator statCreator = new StatCreatorByListProducts();
+
+            StatData statData = new StatData();
+            statData.setDuplicates(statCreator.getDuplicatesByGrpAndType(products));
+            statData.setSumWegthByGroup(statCreator.getSumWegthByGroup(products));
+            statData.setMinWeight(statCreator.getMinWeight(products));
+            statData.setMaxWeight(statCreator.getMaxWeight(products));
+
+            Report report = new Report(statData);
+            report.print();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
