@@ -3,7 +3,7 @@ package ru.perm.v.infomaximum.data;
 import java.util.Map;
 
 public class Report {
-    StatData statData = new StatData();
+    StatData statData;
 
     public Report(StatData statData) {
         this.statData = statData;
