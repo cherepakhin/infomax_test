@@ -30,7 +30,7 @@ public class Stat {
      * @param products список продуктов
      * @return Map<String, Integer> где String название группы, Integer - вес
      */
-    public Map<String, Integer> getWegthByGroup(List<Product> products) {
+    public Map<String, Integer> getSumWegthByGroup(List<Product> products) {
         return products.stream().collect(Collectors.groupingBy(Product::getGrp,
                 Collectors.summingInt(Product::getWeight)));
     }
