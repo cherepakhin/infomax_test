@@ -12,7 +12,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductJsonReader {
+public class ProductJavaxJsonReader {
 
     /**
      * Получение списка Product из файла.

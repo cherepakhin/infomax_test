@@ -1,0 +1,26 @@
+[
+  {
+    "grp": "grp1",
+    "type": "type1",
+    "num": 1,
+    "weight": 111
+  },
+  {
+    "grp": "grp1",
+    "type": "type1",
+    "num": 2,
+    "weight": 112
+  },
+  {
+    "grp": "grp2",
+    "type": "type1",
+    "num": 3,
+    "weight": 213
+  },
+  {
+    "grp": "grp2",
+    "type": "type2",
+    "num": 4,
+    "weight": 224
+  }
+]

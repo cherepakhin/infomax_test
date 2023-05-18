@@ -11,14 +11,14 @@ public class ProductJsonReaderTest {
 
     @Test
     public void readFromNotExistFile() {
-        ProductJsonReader reader = new ProductJsonReader();
+        ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
         Assert.assertThrows(FileNotFoundException.class, () -> reader.readFromFile(""));
     }
 
     @Test
     public void readArrayFromFile() throws FileNotFoundException {
         String productsJsonFilename = "src/test/resources/products_for_test.json";
-        ProductJsonReader reader = new ProductJsonReader();
+        ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
         List<Product> products = reader.readFromFile(productsJsonFilename);
         Assert.assertEquals(4, products.size());
         Assert.assertEquals(new Product("grp1", "type1", 1, 111), products.get(0));

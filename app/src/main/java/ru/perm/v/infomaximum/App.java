@@ -5,7 +5,7 @@ package ru.perm.v.infomaximum;
 
 import ru.perm.v.infomaximum.data.Product;
 import ru.perm.v.infomaximum.data.Report;
-import ru.perm.v.infomaximum.parser.jsonreader.ProductJsonReader;
+import ru.perm.v.infomaximum.parser.jsonreader.ProductJavaxJsonReader;
 import ru.perm.v.infomaximum.parser.jsonreader.StatCreatorByListProducts;
 import ru.perm.v.infomaximum.data.StatData;
 
@@ -44,7 +44,7 @@ public class App {
      * @param filename файл с данными
      */
     private static void createStatWithCreateListProducts(String filename) {
-        ProductJsonReader reader = new ProductJsonReader();
+        ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
         try {
             List<Product> products = reader.readFromFile(filename);
 
