@@ -10,17 +10,17 @@ import java.util.stream.Collectors;
  * Не сработает, если список продуктов большой и памяти мало
  */
 public class StatCreatorByListProducts {
-    public Integer getMaxWeight(List<Product> products) {
+    public Long getMaxWeight(List<Product> products) {
         return Collections.max(products, Comparator.comparing(p -> p.getWeight())).getWeight();
     }
 
-    public Integer getMinWeight(List<Product> products) {
+    public Long getMinWeight(List<Product> products) {
         return Collections.min(products, Comparator.comparing(Product::getWeight)).getWeight();
     }
 
-    public Map<String, Integer> getSumWegthByGroup(List<Product> products) {
+    public Map<String, Long> getSumWegthByGroup(List<Product> products) {
         return products.stream().collect(Collectors.groupingBy(Product::getGrp,
-                Collectors.summingInt(Product::getWeight)));
+                Collectors.summingLong(Product::getWeight)));
     }
 
     public List<Product> getDuplicatesByGrpAndType(List<Product> products) {

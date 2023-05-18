@@ -32,8 +32,8 @@ public class ProductJavaxJsonReader {
             Product product = new Product();
             product.setGrp(jsonObject.getString("grp"));
             product.setType(jsonObject.getString("type"));
-            product.setNum(jsonObject.getInt("num"));
-            product.setWeight(jsonObject.asJsonObject().getInt("weight"));
+            product.setNum(new Long(jsonObject.getString("num")));
+            product.setWeight(new Long(jsonObject.asJsonObject().getString("weight")));
             products.add(product);
         }
         return products;

@@ -29,13 +29,13 @@ public class StatByTokenReader {
     }
 
     protected Boolean parsedIsWeightInLine(String line) {
-        Integer weight = 0;
+        Long weight = 0L;
         boolean parsed = false;
         int pos = line.indexOf("\"weight\":");
         if (pos < 0) {
             return !parsed;
         }
-        weight = Integer.parseInt(line.substring(pos + 10).trim());
+        weight = Long.parseLong(line.substring(pos + 10).trim());
         if (weight.compareTo(stat.getMinWeight()) < 0) {
             stat.setMinWeight(weight);
             parsed = true;

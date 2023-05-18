@@ -16,6 +16,7 @@ public class ProductGsonReader {
             reader.beginArray();
             while (reader.hasNext()) {
                 Product product = readProduct(reader);
+                statData.setMinWeight(product.getWeight());
                 statData.getAllProducts().add(product);
             }
             reader.endArray();
@@ -28,17 +29,20 @@ public class ProductGsonReader {
         reader.beginObject();
         while (reader.hasNext()) {
             String fieldName = reader.nextName();
-            if (fieldName.equals("grp")) {
+            if (fieldName.equals("group")) {
                 product.setGrp(reader.nextString());
+                continue;
             }
             if (fieldName.equals("type")) {
                 product.setType(reader.nextString());
+                continue;
             }
-            if (fieldName.equals("num")) {
-                product.setNum(reader.nextInt());
+            if (fieldName.equals("number")) {
+                product.setNum(reader.nextLong());
+                continue;
             }
             if (fieldName.equals("weight")) {
-                product.setWeight(reader.nextInt());
+                product.setWeight(reader.nextLong());
             }
         }
         reader.endObject();

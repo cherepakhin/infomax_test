@@ -21,10 +21,10 @@ public class ProductJsonReaderTest {
         ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
         List<Product> products = reader.readFromFile(productsJsonFilename);
         Assert.assertEquals(4, products.size());
-        Assert.assertEquals(new Product("grp1", "type1", 1, 111), products.get(0));
-        Assert.assertEquals(new Product("grp1", "type1", 2, 112), products.get(1));
-        Assert.assertEquals(new Product("grp2", "type1", 3, 213), products.get(2));
-        Assert.assertEquals(new Product("grp2", "type2", 4, 224), products.get(3));
+        Assert.assertEquals(new Product("grp1", "type1", 1L, 111L), products.get(0));
+        Assert.assertEquals(new Product("grp1", "type1", 2L, 112L), products.get(1));
+        Assert.assertEquals(new Product("grp2", "type1", 3L, 213L), products.get(2));
+        Assert.assertEquals(new Product("grp2", "type2", 4L, 224L), products.get(3));
     }
 
 //    @Test

@@ -5,13 +5,13 @@ import java.util.Objects;
 public class Product {
     private String grp ="";
     private String type = "";
-    private Integer num = 0;
-    private Integer weight = 0;
+    private Long num = 0L;
+    private Long weight = 0L;
 
     public Product() {
     }
 
-    public Product(String grp, String type, Integer num, Integer weight) {
+    public Product(String grp, String type, Long num, Long weight) {
         this.grp = grp;
         this.type = type;
         this.num = num;
@@ -34,19 +34,19 @@ public class Product {
         this.type = type;
     }
 
-    public Integer getNum() {
+    public Long getNum() {
         return num;
     }
 
-    public void setNum(Integer num) {
+    public void setNum(Long num) {
         this.num = num;
     }
 
-    public Integer getWeight() {
+    public Long getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(Long weight) {
         this.weight = weight;
     }
 

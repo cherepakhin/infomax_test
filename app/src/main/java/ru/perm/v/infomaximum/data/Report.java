@@ -16,7 +16,7 @@ public class Report {
         }
 
         System.out.println("\n---Weight by group:----");
-        Map<String, Integer> weightByGroup = statData.getSumWegthByGroup();
+        Map<String, Long> weightByGroup = statData.getSumWegthByGroup();
         for (String group : weightByGroup.keySet()) {
             System.out.println(String.format("For group: %s sum weight: %s", group, weightByGroup.get(group)));
         }
