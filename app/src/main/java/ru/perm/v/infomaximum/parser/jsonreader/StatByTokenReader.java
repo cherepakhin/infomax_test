@@ -1,4 +1,4 @@
-package ru.perm.v.infomaximum.parser_object;
+package ru.perm.v.infomaximum.parser.jsonreader;
 
 import ru.perm.v.infomaximum.data.StatData;
 
