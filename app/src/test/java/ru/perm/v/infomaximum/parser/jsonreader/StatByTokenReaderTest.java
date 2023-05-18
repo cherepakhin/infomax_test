@@ -13,7 +13,7 @@ public class StatByTokenReaderTest {
     @Test
     public void testReadFile() throws IOException {
         StatByTokenReader reader = new StatByTokenReader();
-        String productsJsonFilename = "src/test/resources/out.json";
+        String productsJsonFilename = "src/test/resources/products_for_test.json";
         StatData statData = reader.parseFile(productsJsonFilename);
     }
 

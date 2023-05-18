@@ -17,7 +17,7 @@ public class ProductJsonReaderTest {
 
     @Test
     public void readArrayFromFile() throws FileNotFoundException {
-        String productsJsonFilename = "src/test/resources/out.json";
+        String productsJsonFilename = "src/test/resources/products_for_test.json";
         ProductJsonReader reader = new ProductJsonReader();
         List<Product> products = reader.readFromFile(productsJsonFilename);
         Assert.assertEquals(4, products.size());

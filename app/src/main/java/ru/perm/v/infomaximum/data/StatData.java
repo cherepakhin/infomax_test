@@ -11,6 +11,7 @@ import java.util.Map;
  * Данные статистики
  */
 public class StatData {
+    private List<Product> allProducts = new ArrayList<>();
     /**
      * Максимальный вес продукта в списке продуктов
      */
@@ -28,6 +29,14 @@ public class StatData {
      * с количеством их повторений (выводятся только записи, где количество больше одного).
      */
     private List<Product> duplicates = new ArrayList<>();
+
+    public List<Product> getAllProducts() {
+        return allProducts;
+    }
+
+    public void setAllProducts(List<Product> allProducts) {
+        this.allProducts = allProducts;
+    }
 
     public Integer getMaxWeight() {
         return maxWeight;
