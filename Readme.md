@@ -101,7 +101,9 @@ Process finished with exit code 0
 
 ````
 
-<code>&gt;&gt;"Для установки начального размера кучи (initial heap size) используют -Xms , а для максимального размера кучи (maximum heap size) используют -Xmx"
+Для установки начального размера кучи (initial heap size) используют -Xms , а для максимального размера кучи (maximum heap size) используют -Xmx".<br/>
 
+Пример:<br/>
+<code>
 java -Xms256m -Xmx512m ...
 </code>
