@@ -1,4 +1,4 @@
-package ru.perm.v.infomaximum;
+package ru.perm.v.infomaximum.example;
 
 import org.junit.Assert;
 import org.junit.Test;
