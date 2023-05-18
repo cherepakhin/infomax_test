@@ -76,9 +76,13 @@ app/build/libs$ java -Xms256m -Xmx512m -jar app/build/libs/app.jar
 ````
 Ввод данных:
 ````shell
-Enter name CSV file:
-out.json
-
+Enter name file (JSON/CSV):
+>out.json
+Enter method parse:
+ 1) with create Product
+ 2) calc by word in json file ("weight",...)
+>1
+ 
 ------Duplicates:------
 Product{grp='grp1', type='type1', num=1, weight=111}
 Product{grp='grp1', type='type1', num=2, weight=112}
