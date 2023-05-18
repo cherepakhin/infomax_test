@@ -2,10 +2,7 @@ package ru.perm.v.infomaximum.parser.jsonreader;
 
 import ru.perm.v.infomaximum.data.Product;
 
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
+import javax.json.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -32,8 +29,8 @@ public class ProductJavaxJsonReader {
             Product product = new Product();
             product.setGrp(jsonObject.getString("grp"));
             product.setType(jsonObject.getString("type"));
-            product.setNum(new Long(jsonObject.getString("num")));
-            product.setWeight(new Long(jsonObject.asJsonObject().getString("weight")));
+            product.setNum(jsonObject.getJsonNumber("number").longValue());
+            product.setWeight(jsonObject.getJsonNumber("weight").longValue());
             products.add(product);
         }
         return products;

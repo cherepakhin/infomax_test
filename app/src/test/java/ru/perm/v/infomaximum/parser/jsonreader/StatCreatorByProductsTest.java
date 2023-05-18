@@ -37,7 +37,7 @@ public class StatCreatorByProductsTest {
 
         Long minWeight = statCreatorByProducts.getMinWeight(productList);
 
-        assertEquals(Integer.valueOf(111), minWeight);
+        assertEquals(Long.valueOf(111), minWeight);
     }
 
     @Test
@@ -63,8 +63,8 @@ public class StatCreatorByProductsTest {
 
         Map<String, Long> weightByGroup = statCreatorByProducts.getSumWegthByGroup(productList);
 
-        assertEquals(Integer.valueOf(223), weightByGroup.get(GRP1));
-        assertEquals(Integer.valueOf(555), weightByGroup.get(GRP2));
+        assertEquals(Long.valueOf(223), weightByGroup.get(GRP1));
+        assertEquals(Long.valueOf(555), weightByGroup.get(GRP2));
     }
 
     @Test

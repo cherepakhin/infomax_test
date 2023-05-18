@@ -24,7 +24,7 @@ public class StatByTokenReaderTest {
         stat.setMaxWeight(1L);
         reader.setStat(stat);
         assertTrue(reader.parsedIsWeightInLine("\"weight\": 10"));
-        assertEquals(new Integer(10), reader.getStat().getMaxWeight());
+        assertEquals(new Long(10), reader.getStat().getMaxWeight());
     }
 
     @Test
@@ -34,6 +34,6 @@ public class StatByTokenReaderTest {
         stat.setMinWeight(100L);
         reader.setStat(stat);
         assertTrue(reader.parsedIsWeightInLine("\"weight\": 10"));
-        assertEquals(new Integer(10), reader.getStat().getMinWeight());
+        assertEquals(new Long(10), reader.getStat().getMinWeight());
     }
 }

@@ -12,3 +12,4 @@ bin/
 app/build/
 .gradle/
 out10mln.json
+out10000.json
