@@ -26,12 +26,12 @@ public class ProductJavaxJsonReader {
         JsonArray productJsonArray = jsonReader.readArray();
         List<Product> products = new ArrayList<>();
         for (JsonObject jsonObject : productJsonArray.getValuesAs(JsonObject.class)) {
-            Product product = new Product();
-            product.setGrp(jsonObject.getString("grp"));
-            product.setType(jsonObject.getString("type"));
-            product.setNum(jsonObject.getJsonNumber("number").longValue());
-            product.setWeight(jsonObject.getJsonNumber("weight").longValue());
-            products.add(product);
+            products.add(new Product(
+                    jsonObject.getString("grp"),
+                    jsonObject.getString("type"),
+                    jsonObject.getJsonNumber("number").longValue(),
+                    jsonObject.getJsonNumber("weight").longValue()
+            ));
         }
         return products;
     }

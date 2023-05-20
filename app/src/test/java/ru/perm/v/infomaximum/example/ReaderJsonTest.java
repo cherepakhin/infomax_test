@@ -1,7 +1,7 @@
 package ru.perm.v.infomaximum.example;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -18,7 +18,7 @@ public class ReaderJsonTest {
         JsonObject reply = jsonReader.readObject();
         Boolean pass = reply.getBoolean("pass");
         String msg = reply.getString("msg");
-        Assert.assertEquals("MSG", msg);
-        Assert.assertTrue(pass);
+        Assertions.assertEquals("MSG", msg);
+        Assertions.assertTrue(pass);
     }
 }

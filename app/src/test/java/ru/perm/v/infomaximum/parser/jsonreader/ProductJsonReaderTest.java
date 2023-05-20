@@ -1,7 +1,7 @@
 package ru.perm.v.infomaximum.parser.jsonreader;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import ru.perm.v.infomaximum.data.Product;
 
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ public class ProductJsonReaderTest {
     @Test
     public void readFromNotExistFile() {
         ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
-        Assert.assertThrows(FileNotFoundException.class, () -> reader.readFromFile(""));
+        Assertions.assertThrows(FileNotFoundException.class, () -> reader.readFromFile(""));
     }
 
     @Test
@@ -20,11 +20,11 @@ public class ProductJsonReaderTest {
         String productsJsonFilename = "src/test/resources/products_for_test.json";
         ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
         List<Product> products = reader.readFromFile(productsJsonFilename);
-        Assert.assertEquals(4, products.size());
-        Assert.assertEquals(new Product("grp1", "type1", 1L, 111L), products.get(0));
-        Assert.assertEquals(new Product("grp1", "type1", 2L, 112L), products.get(1));
-        Assert.assertEquals(new Product("grp2", "type1", 3L, 213L), products.get(2));
-        Assert.assertEquals(new Product("grp2", "type2", 4L, 224L), products.get(3));
+        Assertions.assertEquals(4, products.size());
+        Assertions.assertEquals(new Product("grp1", "type1", 1L, 111L), products.get(0));
+        Assertions.assertEquals(new Product("grp1", "type1", 2L, 112L), products.get(1));
+        Assertions.assertEquals(new Product("grp2", "type1", 3L, 213L), products.get(2));
+        Assertions.assertEquals(new Product("grp2", "type2", 4L, 224L), products.get(3));
     }
 
 //    @Test

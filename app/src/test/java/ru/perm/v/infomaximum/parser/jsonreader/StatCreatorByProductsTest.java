@@ -1,14 +1,14 @@
 package ru.perm.v.infomaximum.parser.jsonreader;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import ru.perm.v.infomaximum.data.Product;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
 
 public class StatCreatorByProductsTest {
 
@@ -23,7 +23,7 @@ public class StatCreatorByProductsTest {
 
         Long maxWeight = statCreatorByProducts.getMaxWeight(productList);
 
-        assertEquals(Long.valueOf(222), maxWeight);
+        Assertions.assertEquals(Long.valueOf(222), maxWeight);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class StatCreatorByProductsTest {
 
         Long minWeight = statCreatorByProducts.getMinWeight(productList);
 
-        assertEquals(Long.valueOf(111), minWeight);
+        Assertions.assertEquals(Long.valueOf(111), minWeight);
     }
 
     @Test
@@ -63,8 +63,8 @@ public class StatCreatorByProductsTest {
 
         Map<String, Long> weightByGroup = statCreatorByProducts.getSumWegthByGroup(productList);
 
-        assertEquals(Long.valueOf(223), weightByGroup.get(GRP1));
-        assertEquals(Long.valueOf(555), weightByGroup.get(GRP2));
+        Assertions.assertEquals(Long.valueOf(223), weightByGroup.get(GRP1));
+        Assertions.assertEquals(Long.valueOf(555), weightByGroup.get(GRP2));
     }
 
     @Test
@@ -103,6 +103,6 @@ public class StatCreatorByProductsTest {
         StatCreatorByListProducts stat = new StatCreatorByListProducts();
         List<Product> duplicates = stat.getDuplicatesByGrpAndType(productList);
 
-        assertEquals(4, duplicates.size());
+        Assertions.assertEquals(4, duplicates.size());
     }
 }

@@ -1,12 +1,11 @@
 package ru.perm.v.infomaximum.parser.jsonreader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import ru.perm.v.infomaximum.data.StatData;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class StatByTokenReaderTest {
 
@@ -15,6 +14,7 @@ public class StatByTokenReaderTest {
         StatByTokenReader reader = new StatByTokenReader();
         String productsJsonFilename = "src/test/resources/products_for_test.json";
         StatData statData = reader.parseFile(productsJsonFilename);
+        //TODO
     }
 
     @Test
@@ -23,8 +23,8 @@ public class StatByTokenReaderTest {
         StatData stat = new StatData();
         stat.setMaxWeight(1L);
         reader.setStat(stat);
-        assertTrue(reader.parsedIsWeightInLine("\"weight\": 10"));
-        assertEquals(new Long(10), reader.getStat().getMaxWeight());
+        Assertions.assertEquals(true, reader.parsedIsWeightInLine("\"weight\": 10"));
+        Assertions.assertEquals(new Long(10), reader.getStat().getMaxWeight());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class StatByTokenReaderTest {
         StatData stat = new StatData();
         stat.setMinWeight(100L);
         reader.setStat(stat);
-        assertTrue(reader.parsedIsWeightInLine("\"weight\": 10"));
-        assertEquals(new Long(10), reader.getStat().getMinWeight());
+        Assertions.assertEquals(true, reader.parsedIsWeightInLine("\"weight\": 10"));
+        Assertions.assertEquals(new Long(10), reader.getStat().getMinWeight());
     }
 }
