@@ -42,11 +42,11 @@ public class ProductJsonReaderTest {
         Assertions.assertEquals(new Product("OoAIhpNBjUrTis", "RCgajwfnnEb", 3744019598849545339L, 5022428977080778381L), products.get(4));
     }
 
-    //    @Test
-//    public void readForBigFile() throws FileNotFoundException {
-//        String productsJsonFilename = "src/test/resources/out10mln.json";
-//        ProductJsonReader reader = new ProductJsonReader();
-//        List<Product> products = reader.readFromFile(productsJsonFilename);
-//        Assert.assertEquals(10000000, products.size());
-//    }
+    @Test
+    public void readForBigFile_1MLN() throws FileNotFoundException {
+        String productsJsonFilename = "src/test/resources/out_1mln.json";
+        ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
+        List<Product> products = reader.readFromFile(productsJsonFilename);
+        Assertions.assertEquals(10000000, products.size());
+    }
 }
