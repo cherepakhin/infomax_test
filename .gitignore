@@ -11,5 +11,4 @@ target/
 bin/
 app/build/
 .gradle/
-out10mln.json
-out10000.json
+app/src/test/resources/bigfiles/
