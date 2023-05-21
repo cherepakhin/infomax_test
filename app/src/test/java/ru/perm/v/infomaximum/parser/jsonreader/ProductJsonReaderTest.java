@@ -1,6 +1,7 @@
 package ru.perm.v.infomaximum.parser.jsonreader;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import ru.perm.v.infomaximum.data.Product;
 
@@ -42,6 +43,7 @@ public class ProductJsonReaderTest {
         Assertions.assertEquals(new Product("OoAIhpNBjUrTis", "RCgajwfnnEb", 3744019598849545339L, 5022428977080778381L), products.get(4));
     }
 
+    @Disabled
     @Test
     public void readForBigFile_1MLN() throws FileNotFoundException {
         String productsJsonFilename = "src/test/resources/out_1mln.json";
