@@ -3,19 +3,22 @@ package ru.perm.v.infomaximum.parser.gson;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.perm.v.infomaximum.data.StatData;
+import ru.perm.v.infomaximum.parser.util.StatMemory;
 
 import java.io.IOException;
 
-public class ProductGsonReaderTest {
+import static ru.perm.v.infomaximum.parser.ProductsForTest.FILENAME_10000_PRODUCT;
 
+
+public class ProductGsonReaderTest {
 
     @Test
     public void testParseFile() throws IOException {
+        System.out.printf("Free memory before %s\n", StatMemory.getFreeMemory());
         ProductGsonReader reader = new ProductGsonReader();
-//        String productsJsonFilename = "src/test/resources/products_for_test.json";
-        String productsJsonFilename = "src/test/resources/out10000.json";
-//        String productsJsonFilename = "src/test/resources/out10mln.json";
-        StatData statData = reader.parseFile(productsJsonFilename);
+
+        StatData statData = reader.parseFile(FILENAME_10000_PRODUCT);
+        System.out.printf("Free memory after %s\n", StatMemory.getFreeMemory());
         Assertions.assertEquals(10000, statData.getAllProducts().size());
     }
 }

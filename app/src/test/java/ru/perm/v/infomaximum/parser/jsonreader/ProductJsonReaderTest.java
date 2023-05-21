@@ -7,6 +7,8 @@ import ru.perm.v.infomaximum.data.Product;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import static ru.perm.v.infomaximum.parser.ProductsForTest.FILENAME_PRODUCT_FOR_TEST;
+
 public class ProductJsonReaderTest {
 
     @Test
@@ -17,9 +19,8 @@ public class ProductJsonReaderTest {
 
     @Test
     public void readArrayFromFile() throws FileNotFoundException {
-        String productsJsonFilename = "src/test/resources/products_for_test.json";
         ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
-        List<Product> products = reader.readFromFile(productsJsonFilename);
+        List<Product> products = reader.readFromFile(FILENAME_PRODUCT_FOR_TEST);
         Assertions.assertEquals(4, products.size());
         Assertions.assertEquals(new Product("grp1", "type1", 1L, 111L), products.get(0));
         Assertions.assertEquals(new Product("grp1", "type1", 2L, 112L), products.get(1));

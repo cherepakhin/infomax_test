@@ -11,6 +11,5 @@ public class ProductJavaxJsonReaderTest {
     public void readFromFileNotExistFile() {
         ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
         Assertions.assertThrows(FileNotFoundException.class, () -> reader.readFromFile(""));
-
     }
 }

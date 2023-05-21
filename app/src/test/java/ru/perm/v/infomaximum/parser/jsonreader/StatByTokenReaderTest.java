@@ -6,14 +6,15 @@ import ru.perm.v.infomaximum.data.StatData;
 
 import java.io.IOException;
 
+import static ru.perm.v.infomaximum.parser.ProductsForTest.FILENAME_PRODUCT_FOR_TEST;
+
 
 public class StatByTokenReaderTest {
 
     @Test
     public void testReadFile() throws IOException {
         StatByTokenReader reader = new StatByTokenReader();
-        String productsJsonFilename = "src/test/resources/products_for_test.json";
-        StatData statData = reader.parseFile(productsJsonFilename);
+        StatData statData = reader.parseFile(FILENAME_PRODUCT_FOR_TEST);
         //TODO
     }
 
