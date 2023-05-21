@@ -27,7 +27,7 @@ public class ProductJavaxJsonReader {
         List<Product> products = new ArrayList<>();
         for (JsonObject jsonObject : productJsonArray.getValuesAs(JsonObject.class)) {
             products.add(new Product(
-                    jsonObject.getString("grp"),
+                    jsonObject.getString("group"),
                     jsonObject.getString("type"),
                     jsonObject.getJsonNumber("number").longValue(),
                     jsonObject.getJsonNumber("weight").longValue()

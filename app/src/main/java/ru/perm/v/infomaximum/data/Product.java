@@ -66,7 +66,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "grp='" + grp + '\'' +
+                "group='" + grp + '\'' +
                 ", type='" + type + '\'' +
                 ", num=" + num +
                 ", weight=" + weight +

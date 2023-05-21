@@ -3,6 +3,7 @@ package ru.perm.v.infomaximum.parser.gson;
 import com.google.gson.stream.JsonReader;
 import ru.perm.v.infomaximum.data.Product;
 import ru.perm.v.infomaximum.data.StatData;
+import ru.perm.v.infomaximum.parser.util.StatMemory;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +12,8 @@ public class ProductGsonReader {
     private StatData statData = new StatData();
 
     public StatData parseFile(String filename) throws IOException {
+        long freeMemBefore = StatMemory.getFreeMemory();
+        System.out.printf("Free memory before %,d bytes\n", freeMemBefore);
         statData = new StatData();
         try (JsonReader reader = new JsonReader(new FileReader(filename))) {
             reader.beginArray();
@@ -21,6 +24,9 @@ public class ProductGsonReader {
             }
             reader.endArray();
         }
+        long freeMemAfter = StatMemory.getFreeMemory();
+        System.out.printf("Free memory after: %,d bytes, used: %,d bytes\n",
+                freeMemAfter, freeMemBefore - freeMemAfter);
         return statData;
     }
 
