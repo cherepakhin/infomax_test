@@ -43,10 +43,11 @@ public class ProductJsonReaderTest {
         Assertions.assertEquals(new Product("OoAIhpNBjUrTis", "RCgajwfnnEb", 3744019598849545339L, 5022428977080778381L), products.get(4));
     }
 
+    // only for manual HIGHload testing
     @Disabled
     @Test
     public void readForBigFile_1MLN() throws FileNotFoundException {
-        String productsJsonFilename = "src/test/resources/out_1mln.json";
+        String productsJsonFilename = "src/test/resources/bigfiles/out_1mln.json";
         ProductJavaxJsonReader reader = new ProductJavaxJsonReader();
         List<Product> products = reader.readFromFile(productsJsonFilename);
         Assertions.assertEquals(10000000, products.size());
