@@ -36,6 +36,7 @@ public class App {
      * @param filename файл с данными
      */
     private static void createStatByCalcWord(String filename) {
+        System.out.println("NOT RELEASED!\n");
     }
 
     /**
